@@ -1,0 +1,11 @@
+{
+    "files.autoSave": "off",
+    "editor.tabSize": 4,
+    "editor.formatOnSave": true,
+    "[typescript]": {
+        "editor.formatOnSave": false
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true
+    }
+}
