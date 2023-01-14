@@ -3,7 +3,6 @@ import {
     CommandInteraction,
     CommandInteractionOptionResolver,
     GuildMember,
-    PermissionResolvable,
 } from 'discord.js';
 import { ExtendedClient } from '../structures/Client';
 
@@ -20,6 +19,6 @@ interface RunOptions {
 type RunFunction = (options: RunOptions) => void;
 
 export type CommandType = {
-    default_member_permissions?: PermissionResolvable[];
+    default_member_permissions?: string;
     run: RunFunction;
 } & ChatInputApplicationCommandData;
