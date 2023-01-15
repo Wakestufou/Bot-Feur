@@ -6,6 +6,7 @@ import DataBaseCheck from '../utils/DataBaseCheck';
 export default new Event('ready', (client) => {
     Logger.info('Bot is online ! ' + client.user?.tag, 'READY', Color.FgGreen);
     client.guilds.cache.forEach((element) => {
+        Logger.info(`Check database for ${element.name}`, 'DATABASE');
         DataBaseCheck.checkDataBase(element);
     });
 });

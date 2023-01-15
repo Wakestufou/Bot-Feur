@@ -7,30 +7,36 @@ class DataBaseCheck {
         Logger.info(`Check database for ${guild.id}`, 'DATABASE');
         try {
             console.log(__dirname);
-            if (!fs.existsSync(`${__dirname}/../../db/guilds`)) {
+            if (!fs.existsSync(`${__dirname}/../db/guilds`)) {
                 Logger.info(`Guilds Folder doesn't exist !`, 'DATABASE');
 
-                fs.mkdirSync('../../db/guilds/');
+                fs.mkdirSync(__dirname + '/../db/guilds/');
             } else {
                 Logger.info(`Guilds Folder exist !`, 'DATABASE');
             }
 
-            if (fs.existsSync('../../db/guilds/' + guild.id + '.json')) {
+            if (
+                !fs.existsSync(
+                    __dirname + '/../db/guilds/' + guild.id + '.json'
+                )
+            ) {
                 Logger.info(
                     `Guilds data base file doesn't exist !`,
                     'DATABASE'
                 );
                 //create Json file for guild
                 const guildData = {
-                    id: guild.id,
-                    module: {
-                        quoi: true,
-                        je_suis: true,
+                    Guild: {
+                        id: guild.id,
+                        modules: {
+                            quoi: true,
+                            je_suis: true,
+                        },
                     },
                 };
 
                 fs.writeFileSync(
-                    `../../db/guilds/${guild.id}.json`,
+                    `${__dirname}/../db/guilds/${guild.id}.json`,
                     JSON.stringify(guildData)
                 );
             } else {

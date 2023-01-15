@@ -23,7 +23,7 @@ export class ExtendedClient extends Client {
     private slashCommands: ApplicationCommandDataResolvable[] = [];
 
     constructor() {
-        super({ intents: 32767 });
+        super({ intents: 65535 });
 
         if (process.argv.includes('--DEV')) {
             this._rest = new REST({ version: '10' }).setToken(
