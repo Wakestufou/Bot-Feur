@@ -1,5 +1,6 @@
 import { ExtendedClient } from './structures/Client';
 import Logger from './utils/Logger';
+import 'dotenv/config';
 
 Logger.info('Program starting...');
 
