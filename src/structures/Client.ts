@@ -33,7 +33,6 @@ export class ExtendedClient extends Client {
             this._clientId = process.env.DISCORD_APP_ID_DEV as string;
 
             this._token = process.env.DISCORD_TOKEN_DEV as string;
-            console.log(process.env.DISCORD_TOKEN_DEV);
         } else {
             this._rest = new REST({ version: '10' }).setToken(
                 process.env.DISCORD_TOKEN as string

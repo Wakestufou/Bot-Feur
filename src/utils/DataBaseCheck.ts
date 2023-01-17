@@ -6,7 +6,6 @@ class DataBaseCheck {
     checkDataBase(guild: Guild) {
         Logger.info(`Check database for ${guild.id}`, 'DATABASE');
         try {
-            console.log(__dirname);
             if (!fs.existsSync(`${__dirname}/../db/guilds`)) {
                 Logger.info(`Guilds Folder doesn't exist !`, 'DATABASE');
 

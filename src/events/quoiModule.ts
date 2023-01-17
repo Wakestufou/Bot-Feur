@@ -2,7 +2,6 @@ import fs from 'fs';
 import { guildData } from '../types/dataBase';
 import { Event } from '../structures/Event';
 import { ChannelType } from 'discord.js';
-import quoiJson from '../db/modules/quoi.json';
 import Logger from '../utils/Logger';
 
 export default new Event('messageCreate', async (message) => {
@@ -23,6 +22,10 @@ export default new Event('messageCreate', async (message) => {
             if (!guildData.Guild.modules.quoi) return;
 
             let contains = false;
+
+            const quoiJson = JSON.parse(
+                fs.readFileSync(`${__dirname}/../db/modules/quoi.json`, 'utf-8')
+            );
 
             for (let i = 0; i < quoiJson.get.length; i++) {
                 if (message.content.toLowerCase().includes(quoiJson.get[i])) {
