@@ -58,7 +58,7 @@ export default new Command({
         if (subCommand === 'get') {
             const db = JSON.parse(
                 fs.readFileSync(
-                    `${__dirname}/../db/guilds/${interaction.guild?.id}.json`,
+                    `${__dirname}/../../db/guilds/${interaction.guild?.id}.json`,
                     'utf-8'
                 )
             );
@@ -74,7 +74,7 @@ export default new Command({
             if (module === 'quoi') {
                 const db = JSON.parse(
                     fs.readFileSync(
-                        `${__dirname}/../db/guilds/${interaction.guild?.id}.json`,
+                        `${__dirname}/../../db/guilds/${interaction.guild?.id}.json`,
                         'utf-8'
                     )
                 );
@@ -82,7 +82,7 @@ export default new Command({
                 db.Guild.modules.quoi = args.getBoolean('active', true);
 
                 fs.writeFile(
-                    `${__dirname}/../db/guilds/${interaction.guild?.id}.json`,
+                    `${__dirname}/../../db/guilds/${interaction.guild?.id}.json`,
                     JSON.stringify(db),
                     (err) => {
                         if (err) {

@@ -6,17 +6,17 @@ class DataBaseCheck {
     checkDataBase(guild: Guild) {
         Logger.info(`Check database for ${guild.id}`, 'DATABASE');
         try {
-            if (!fs.existsSync(`${__dirname}/../db/guilds`)) {
+            if (!fs.existsSync(`${__dirname}/../../db/guilds`)) {
                 Logger.info(`Guilds Folder doesn't exist !`, 'DATABASE');
 
-                fs.mkdirSync(__dirname + '/../db/guilds/');
+                fs.mkdirSync(__dirname + '/../../db/guilds/');
             } else {
                 Logger.info(`Guilds Folder exist !`, 'DATABASE');
             }
 
             if (
                 !fs.existsSync(
-                    __dirname + '/../db/guilds/' + guild.id + '.json'
+                    __dirname + '/../../db/guilds/' + guild.id + '.json'
                 )
             ) {
                 Logger.info(
@@ -35,7 +35,7 @@ class DataBaseCheck {
                 };
 
                 fs.writeFileSync(
-                    `${__dirname}/../db/guilds/${guild.id}.json`,
+                    `${__dirname}/../../db/guilds/${guild.id}.json`,
                     JSON.stringify(guildData)
                 );
             } else {

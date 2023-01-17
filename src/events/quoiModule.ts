@@ -9,7 +9,7 @@ export default new Event('messageCreate', async (message) => {
     if (message.channel.type === ChannelType.DM) return;
 
     fs.readFile(
-        `${__dirname}/../db/guilds/${message.guild?.id}.json`,
+        `${__dirname}/../../db/guilds/${message.guild?.id}.json`,
         'utf-8',
         (err, data) => {
             if (err) {
@@ -24,7 +24,10 @@ export default new Event('messageCreate', async (message) => {
             let contains = false;
 
             const quoiJson = JSON.parse(
-                fs.readFileSync(`${__dirname}/../db/modules/quoi.json`, 'utf-8')
+                fs.readFileSync(
+                    `${__dirname}/../../db/modules/quoi.json`,
+                    'utf-8'
+                )
             );
 
             for (let i = 0; i < quoiJson.get.length; i++) {
