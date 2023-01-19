@@ -98,7 +98,7 @@ export default new Command({
                             'Error when setter database : ' + err.message
                         );
                     } else {
-                        const message = `Module ${module} set to ${db.Guild.modules[module]}}`;
+                        const message = `Module ${module} set to ${db.Guild.modules[module]}`;
                         interaction
                             .reply({
                                 content: message,

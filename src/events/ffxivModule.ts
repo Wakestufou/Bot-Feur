@@ -7,16 +7,17 @@ import { guildData } from '../types/dataBase';
 import Logger from '../utils/Logger';
 
 export default new Event('ready', async (client) => {
-    cron.schedule('0 0 0 * * *', async () => {
+    cron.schedule('0 0 * * *', async () => {
         // Do something every day at 00:00:00
         const random = Math.floor(Math.random() * 86399) * 1000;
 
         Logger.info(`Wait ${random}ms`, 'FFXIV');
 
-        await setTimeout(random);
+        await setTimeout(5000);
 
         // Do something after random time
         const Guilds = client.guilds.cache.map((guild) => guild.id);
+
         Guilds.forEach(async (guildId) => {
             const db = JSON.parse(
                 fs.readFileSync(
@@ -32,7 +33,7 @@ export default new Event('ready', async (client) => {
 
             // eslint-disable-next-line no-prototype-builtins
             if (db.Guild.modules.hasOwnProperty('ffxiv') === false) {
-                db.Guild.modules.ffxiv = false;
+                db.Guild.modules.ffxiv = true;
             }
 
             if (!db.Guild.modules.ffxiv) return;
@@ -69,12 +70,15 @@ export default new Event('ready', async (client) => {
                 )
             );
 
-            const responseRandom =
+            let responseRandom =
                 ffxivModule.response[
                     Math.floor(Math.random() * ffxivModule.response.length)
                 ];
 
-            responseRandom.replace('{user}', randomUser.toString());
+            responseRandom = responseRandom.replace(
+                '<@{user}>',
+                randomUser.toString()
+            );
 
             // Send message
             randomChannel.send(responseRandom).catch((err) => {
