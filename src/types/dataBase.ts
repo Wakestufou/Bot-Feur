@@ -4,7 +4,9 @@ export type guildData = {
         modules: {
             quoi: boolean;
             je_suis: boolean;
+            ffxiv: boolean;
         };
+        user_blacklist: string[];
     };
 };
 

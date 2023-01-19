@@ -37,6 +37,10 @@ export default new Command({
                                     name: 'je suis',
                                     value: 'je_suis',
                                 },
+                                {
+                                    name: 'FF XIV',
+                                    value: 'ffxiv',
+                                },
                             ],
                         },
                         {
@@ -71,42 +75,43 @@ export default new Command({
         } else if (subCommand === 'set') {
             const module = args.getString('module', true);
 
-            if (module === 'quoi') {
-                const db = JSON.parse(
-                    fs.readFileSync(
-                        `${__dirname}/../../db/guilds/${interaction.guild?.id}.json`,
-                        'utf-8'
-                    )
-                );
-
-                db.Guild.modules.quoi = args.getBoolean('active', true);
-
-                fs.writeFile(
+            const db = JSON.parse(
+                fs.readFileSync(
                     `${__dirname}/../../db/guilds/${interaction.guild?.id}.json`,
-                    JSON.stringify(db),
-                    (err) => {
-                        if (err) {
-                            Logger.warn(
-                                'Error when setter database : ' + err.message
-                            );
-                        } else {
-                            interaction
-                                .reply({
-                                    content:
-                                        'Module `quoi` set to `' +
-                                        db.Guild.modules.quoi +
-                                        '`',
-                                })
-                                .catch((err) => {
-                                    Logger.warn(
-                                        'Error when setter database : ' +
-                                            err.message
-                                    );
-                                });
-                        }
-                    }
-                );
+                    'utf-8'
+                )
+            );
+
+            // eslint-disable-next-line no-prototype-builtins
+            if (db.Guild.modules.hasOwnProperty(module) === false) {
+                db.Guild.modules[module] = true;
             }
+
+            db.Guild.modules[module] = args.getBoolean('active', true);
+
+            fs.writeFile(
+                `${__dirname}/../../db/guilds/${interaction.guild?.id}.json`,
+                JSON.stringify(db),
+                (err) => {
+                    if (err) {
+                        Logger.warn(
+                            'Error when setter database : ' + err.message
+                        );
+                    } else {
+                        const message = `Module ${module} set to ${db.Guild.modules[module]}}`;
+                        interaction
+                            .reply({
+                                content: message,
+                            })
+                            .catch((err) => {
+                                Logger.warn(
+                                    'Error when setter database : ' +
+                                        err.message
+                                );
+                            });
+                    }
+                }
+            );
         }
     },
 });

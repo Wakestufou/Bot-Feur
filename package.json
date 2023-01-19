@@ -23,11 +23,13 @@
   "dependencies": {
     "discord.js": "^14.7.1",
     "dotenv": "^16.0.3",
-    "glob": "^8.0.3"
+    "glob": "^8.0.3",
+    "node-cron": "^3.0.2"
   },
   "devDependencies": {
     "@types/glob": "^8.0.0",
     "@types/node": "^18.11.18",
+    "@types/node-cron": "^3.0.7",
     "@typescript-eslint/eslint-plugin": "^5.48.1",
     "@typescript-eslint/parser": "^5.48.1",
     "eslint": "^8.31.0",
