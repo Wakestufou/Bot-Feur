@@ -1,6 +1,6 @@
 {
     "get" : [],
     "response": [
-        "<@{user}> Tu connais FFXIV ???"
+        "<@{user}> Tu connais FFXIV ??? ||Tu peux désactivé le fait d'être mentionné avec la commande `/blacklist`||"
     ]
 }
