@@ -1,7 +1,6 @@
 {
     "get": [
         "quoi",
-        "kwa",
         "quio",
         "kuoi",
         "qoi",
@@ -14,7 +13,9 @@
         "kua",
         "qua",
         "kwoi",
-        "koï"
+        "koï",
+        "qoua",
+        "coa"
     ],
     "response": [
         "feur",
