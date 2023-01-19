@@ -13,7 +13,7 @@ export default new Event('ready', async (client) => {
 
         Logger.info(`Wait ${random}ms`, 'FFXIV');
 
-        await setTimeout(5000);
+        await setTimeout(random);
 
         // Do something after random time
         const Guilds = client.guilds.cache.map((guild) => guild.id);
