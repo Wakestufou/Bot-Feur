@@ -30,8 +30,10 @@ export default new Event('messageCreate', async (message) => {
                 )
             );
 
+            const messageContent = message.content.toLowerCase().split(' ');
+
             for (let i = 0; i < quoiJson.get.length; i++) {
-                if (message.content.toLowerCase().includes(quoiJson.get[i])) {
+                if (messageContent.includes(quoiJson.get[i])) {
                     contains = true;
                     break;
                 }
