@@ -1,17 +1,1 @@
-[
-    {
-        "id": "378933638454050836",
-        "response": [
-            "Isaiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiie"
-        ],
-        "active": true
-    },
-    {
-        "id": "361428013230981121",
-        "response": [
-            "oui",
-            "Mais TG"
-        ],
-        "active": false
-    }
-]
+[{"id":"378933638454050836","response":["Isaiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiie"],"active":true},{"id":"361428013230981121","response":["oui","Mais TG"],"active":false}]

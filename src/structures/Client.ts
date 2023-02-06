@@ -123,7 +123,7 @@ export class ExtendedClient extends Client {
 
     private async _loadDmCommands() {
         const commandFiles = await globPromise(
-            `${__dirname}\\..\\dmCommands\\*{.ts,.js}`.replace(/\\/g, '/')
+            `${__dirname}\\..\\dmcommands\\*{.ts,.js}`.replace(/\\/g, '/')
         );
 
         Promise.all(
