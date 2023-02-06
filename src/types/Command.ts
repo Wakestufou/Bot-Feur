@@ -3,6 +3,7 @@ import {
     CommandInteraction,
     CommandInteractionOptionResolver,
     GuildMember,
+    Message,
 } from 'discord.js';
 import { ExtendedClient } from '../structures/Client';
 
@@ -12,8 +13,9 @@ export interface ExtendedInteraction extends CommandInteraction {
 
 interface RunOptions {
     client: ExtendedClient;
-    interaction: ExtendedInteraction;
-    args: CommandInteractionOptionResolver;
+    interaction?: ExtendedInteraction;
+    args?: CommandInteractionOptionResolver;
+    message?: Message;
 }
 
 type RunFunction = (options: RunOptions) => void;

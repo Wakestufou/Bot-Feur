@@ -9,7 +9,7 @@ export default new Event('interactionCreate', async (interaction) => {
         const command = client.getCommands().get(interaction.commandName);
 
         if (!command)
-            return interaction.reply('You have used a non exitent command');
+            return interaction.reply('You have used a non exitent (/) command');
 
         try {
             command.run({

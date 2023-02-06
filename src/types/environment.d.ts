@@ -7,6 +7,7 @@ declare global {
             DISCORD_APP_ID_DEV: string;
             DISCORD_GUILD_ID: string;
             DISCORD_GUILD_ID_DEV: string;
+            DISCORD_PREFIX: string;
         }
     }
 }

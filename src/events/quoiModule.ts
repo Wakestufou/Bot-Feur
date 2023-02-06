@@ -13,7 +13,7 @@ export default new Event('messageCreate', async (message) => {
         'utf-8',
         (err, data) => {
             if (err) {
-                console.log(err);
+                Logger.error("Error while reading guild's file : ", err);
                 return;
             }
 

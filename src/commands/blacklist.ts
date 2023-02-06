@@ -25,6 +25,7 @@ export default new Command({
         },
     ],
     run: async ({ interaction, args }) => {
+        if (!interaction || !args) return;
         const active = args.getString('active', true);
 
         const db = JSON.parse(

@@ -14,3 +14,11 @@ export type moduleData = {
     get: [string];
     response: [string];
 };
+
+export type personsData = [
+    {
+        id: string;
+        response: [string];
+        active: boolean;
+    }
+];
