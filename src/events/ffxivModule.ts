@@ -11,7 +11,11 @@ export default new Event('ready', async (client) => {
         // Do something every day at 00:00:00
         const random = Math.floor(Math.random() * 86000) * 1000;
 
-        Logger.info(`Wait ${random}ms`, 'FFXIV');
+        const hour = random / 3600000;
+        const minute = (random % 3600000) / 60000 + 10;
+        const second = ((random % 3600000) % 60000) / 1000;
+
+        Logger.info(`Wait ${random}ms | ${hour}:${minute}:${second}`, 'FFXIV');
 
         await setTimeout(random);
 

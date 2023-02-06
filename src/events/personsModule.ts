@@ -1,7 +1,6 @@
 import { Event } from '../structures/Event';
 import { ChannelType } from 'discord.js';
 import Logger from '../utils/Logger';
-import { client } from '..';
 import fs from 'fs';
 import { personsData } from '../types/dataBase';
 
