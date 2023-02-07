@@ -41,6 +41,10 @@ export default new Command({
                                     name: 'FF XIV',
                                     value: 'ffxiv',
                                 },
+                                {
+                                    name: 'Connemara',
+                                    value: 'connemara',
+                                },
                             ],
                         },
                         {

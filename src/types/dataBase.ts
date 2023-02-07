@@ -5,6 +5,7 @@ export type guildData = {
             quoi: boolean;
             je_suis: boolean;
             ffxiv: boolean;
+            connemara: boolean;
         };
         user_blacklist: string[];
     };
